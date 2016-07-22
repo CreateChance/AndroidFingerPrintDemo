@@ -17,7 +17,7 @@ import javax.crypto.KeyGenerator;
 public class CryptoObjectHelper
 {
     // This can be key name you want. Should be unique for the app.
-    static final String KEY_NAME = "com.xamarin.android.sample.fingerprint_authentication_key";
+    static final String KEY_NAME = "com.createchance.android.sample.fingerprint_authentication_key";
 
     // We always use this keystore on Android.
     static final String KEYSTORE_NAME = "AndroidKeyStore";
