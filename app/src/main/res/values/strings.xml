@@ -11,6 +11,16 @@
     <string name="fingerprint_success">Fingerprint recognized.</string>
     <string name="fingerprint_not_recognized">Fingerprint not recognized. Try again.</string>
 
+    <!-- Dialog info -->
+    <string name="no_sensor_dialog_title">No fingerprint sensor</string>
+    <string name="no_sensor_dialog_message">No fingerprint sensor on your device, click cancel to exit.</string>
+    <string name="no_fingerprint_enrolled_dialog_title">No fingerprint enrolled</string>
+    <string name="no_fingerprint_enrolled_dialog_message">No fingerprint enrolled, enter\n
+        <font fgcolor="green">Setting->Security->Nexus Imprint\n</font>
+        to enrollor click cancel to exit.</string>
+    <string name="ok_btn_dialog">OK</string>
+    <string name="cancel_btn_dialog">Cancel</string>
+
     <!-- auth result error amd help code warning -->
     <string name="AcquiredGood_warning">The image acquired was good.</string>
     <string name="AcquiredImageDirty_warning">The fingerprint image was too noisy due to suspected or detected dirt on the sensor.
