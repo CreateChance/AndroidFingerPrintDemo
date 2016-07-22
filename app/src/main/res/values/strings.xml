@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">FingerPrintDemo</string>
+
+    <string name="fingerprint_description">Confirm your fingerprint.</string>
+    <string name="fingerprint_hint">Touch sensor</string>
+
+    <!-- Button text -->
+    <string name="start_btn">Start</string>
+    <string name="cancel_btn">Cancel</string>
+
+    <string name="fingerprint_success">Fingerprint recognized.</string>
+    <string name="fingerprint_not_recognized">Fingerprint not recognized. Try again.</string>
+
+    <!-- auth result error amd help code warning -->
+    <string name="AcquiredGood_warning">The image acquired was good.</string>
+    <string name="AcquiredImageDirty_warning">The fingerprint image was too noisy due to suspected or detected dirt on the sensor.
+        For example, it\'s reasonable to return this after multiple AcquiredInsufficient or
+        actual detection of dirt on the sensor (stuck pixels, swaths, etc.).
+        The user is expected to take action to clean the sensor when this is returned.</string>
+    <string name="AcquiredInsufficient_warning">The fingerprint image was too noisy to process due to
+        a detected condition (i.e. dry skin) or a possibly dirty sensor.</string>
+    <string name="AcquiredPartial_warning">Only a partial fingerprint image was detected.
+        During enrollment, the user should be informed on what needs to happen to resolve this problem, e.g., "press firmly on sensor."</string>
+    <string name="AcquiredTooFast_warning">The fingerprint image was incomplete due to quick motion.
+        While mostly appropriate for linear array sensors, this could also happen if the finger was moved during acquisition.
+        The user should be asked to move the finger slower (linear) or leave the finger on the sensor longer.</string>
+    <string name="AcquiredToSlow_warning">The fingerprint image was unreadable due to lack of motion.
+        This is most appropriate for linear array sensors that require a swipe motion.</string>
+    <string name="ErrorCanceled_warning">The operation was canceled because the fingerprint sensor is unavailable.
+        For example, this may happen when the user is switched,
+        the device is locked, or another pending operation prevents or disables it.</string>
+    <string name="ErrorHwUnavailable_warning">The hardware is unavailable. Try again later.</string>
+    <string name="ErrorLockout_warning">The operation was canceled because the API is locked out due to too many attempts.</string>
+    <string name="ErrorNoSpace_warning">Error state returned for operations like enrollment;
+        the operation cannot be completed because there\'s not enough storage remaining to complete the operation.</string>
+    <string name="ErrorTimeout_warning">Error state returned when the current request has been running too long.
+        This is intended to prevent programs from waiting for the fingerprint sensor indefinitely.
+        The timeout is platform and sensor-specific, but is generally about 30 seconds.</string>
+    <string name="ErrorUnableToProcess_warning">Error state returned when the sensor was unable to process the current image.</string>
+    
+</resources>
