@@ -4,12 +4,9 @@ import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.util.Log;
 
 import java.security.Key;
 import java.security.KeyStore;
-import java.security.Provider;
-import java.security.Security;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

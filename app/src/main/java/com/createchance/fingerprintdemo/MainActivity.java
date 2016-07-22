@@ -1,10 +1,12 @@
 package com.createchance.fingerprintdemo;
 
+import android.content.DialogInterface;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v4.os.CancellationSignal;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     mCancelBtn.setEnabled(true);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(MainActivity.this, "Fingerprint init failed!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Fingerprint init failed! Try again!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -113,10 +115,52 @@ public class MainActivity extends AppCompatActivity {
 
         // init fingerprint.
         fingerprintManager = FingerprintManagerCompat.from(this);
-        try {
-            myAuthCallback = new MyAuthCallback(handler);
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        if (!fingerprintManager.isHardwareDetected()) {
+            // no fingerprint sensor is detected, show dialog to tell user.
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.no_sensor_dialog_title);
+            builder.setMessage(R.string.no_sensor_dialog_message);
+            builder.setIcon(android.R.drawable.stat_sys_warning);
+            builder.setCancelable(false);
+            builder.setNegativeButton(R.string.cancel_btn_dialog, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            // show this dialog.
+            builder.create().show();
+        } else if (!fingerprintManager.hasEnrolledFingerprints()) {
+            // no fingerprint image has been enrolled.
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.no_fingerprint_enrolled_dialog_title);
+            builder.setMessage(R.string.no_fingerprint_enrolled_dialog_message);
+            builder.setIcon(android.R.drawable.stat_sys_warning);
+            builder.setCancelable(false);
+            builder.setNegativeButton(R.string.cancel_btn_dialog, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            // show this dialog
+            builder.create().show();
+        } else {
+            try {
+                myAuthCallback = new MyAuthCallback(handler);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (!mStartBtn.isEnabled() && cancellationSignal != null) {
+            cancellationSignal.cancel();
         }
     }
 

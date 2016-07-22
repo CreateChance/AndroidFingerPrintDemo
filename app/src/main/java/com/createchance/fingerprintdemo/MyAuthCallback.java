@@ -1,10 +1,7 @@
 package com.createchance.fingerprintdemo;
 
-import android.content.Context;
-import android.hardware.fingerprint.FingerprintManager;
 import android.os.Handler;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.widget.TextView;
 
 /**
  * Created by baniel on 7/21/16.
